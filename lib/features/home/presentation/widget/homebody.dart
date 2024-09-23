@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
-class HomeView extends StatelessWidget {
-  const HomeView({super.key});
+class Homebody extends StatelessWidget {
+  const Homebody({super.key});
 
   @override
   Widget build(BuildContext context) {
