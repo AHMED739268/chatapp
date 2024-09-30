@@ -1,2 +1,0 @@
-# chatapp
-flutter chat app 
