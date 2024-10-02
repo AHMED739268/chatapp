@@ -2,6 +2,6 @@ class Assets {
   Assets._();
 
 
-  static const String splash = "assets/images/splash.gif";
+  static const String splash = "assets/images/whatsapp-svgrepo-com.svg";
 
 }

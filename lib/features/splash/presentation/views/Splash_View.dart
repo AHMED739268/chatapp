@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_svg/flutter_svg.dart';
 import '../../../../core/utils/app_assets.dart';
 import '../../../auth/presentation/views/Loginin_View.dart';
 
@@ -58,10 +58,10 @@ class _SplashViewState extends State<SplashView>  with SingleTickerProviderState
       body: Stack(
         children: [
           Center(
-            child: Image.asset(
+            child: SvgPicture.asset(
               Assets.splash
-             , width: 200,
-              height: 200,
+             , width: 70,
+               height: 70,
             ),
           ),
 
@@ -71,7 +71,7 @@ class _SplashViewState extends State<SplashView>  with SingleTickerProviderState
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: Padding(
-                  padding: const EdgeInsets.only(top: 100.0,left: 170), // Adjust position below the image
+                  padding: const EdgeInsets.only(top: 200.0,left: 140), // Adjust position below the image
                   child: Text(
                     "Whats",
                     style: TextStyle(
@@ -91,7 +91,7 @@ class _SplashViewState extends State<SplashView>  with SingleTickerProviderState
               child: Align(
                 alignment: Alignment.center,
                 child: Padding(
-                  padding: const EdgeInsets.only(top: 100.0, left: 150,right: 70), // Adjust to align with "Whats"
+                  padding: const EdgeInsets.only(top: 200.0, left: 150,right: 45), // Adjust to align with "Whats"
                   child: Text(
                     "App",
                     style: TextStyle(
