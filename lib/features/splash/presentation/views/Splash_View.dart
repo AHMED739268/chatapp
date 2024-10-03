@@ -71,7 +71,7 @@ class _SplashViewState extends State<SplashView>  with SingleTickerProviderState
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: Padding(
-                  padding: const EdgeInsets.only(top: 200.0,left: 140), // Adjust position below the image
+                  padding: const EdgeInsets.only(top: 200.0,left: 140), 
                   child: Text(
                     "Whats",
                     style: TextStyle(
@@ -91,7 +91,7 @@ class _SplashViewState extends State<SplashView>  with SingleTickerProviderState
               child: Align(
                 alignment: Alignment.center,
                 child: Padding(
-                  padding: const EdgeInsets.only(top: 200.0, left: 150,right: 45), // Adjust to align with "Whats"
+                  padding: const EdgeInsets.only(top: 200.0, left: 150,right: 45),
                   child: Text(
                     "App",
                     style: TextStyle(
