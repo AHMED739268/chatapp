@@ -11,8 +11,8 @@ class SplashView extends StatefulWidget {
   State<SplashView> createState() => _SplashViewState();
 }
 
-class _SplashViewState extends State<SplashView>  with SingleTickerProviderStateMixin {
-
+class _SplashViewState extends State<SplashView>  with TickerProviderStateMixin {
+  late AnimationController _controller2;
   late AnimationController _controller;
   late Animation<Offset> _whatsTextAnimation;
   late Animation<Offset> _appTextAnimation;
@@ -22,8 +22,12 @@ class _SplashViewState extends State<SplashView>  with SingleTickerProviderState
 
     super.initState();
 
-    _controller = AnimationController(
+    _controller2 = AnimationController(
       duration: Duration(seconds: 4),
+      vsync: this,
+    );
+    _controller = AnimationController(
+      duration: Duration(seconds: 3),
       vsync: this,
     );
     _whatsTextAnimation = Tween<Offset>(
@@ -32,11 +36,13 @@ class _SplashViewState extends State<SplashView>  with SingleTickerProviderState
     ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeInOut));
 
     _appTextAnimation = Tween<Offset>(
-      begin: Offset(2, 0), // Start from off-screen (right)
+      begin: Offset(0, 2), // Start from off-screen (right)
       end: Offset(0, 0),   // Move next to "Whats"
-    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeInOut));
+    ).animate(CurvedAnimation(parent: _controller2, curve: Curves.easeInOut));
 
     _controller.forward();
+    _controller2.forward();
+
     Future.delayed(Duration(seconds: 5), () {
       Navigator.pushReplacement(
         context,
@@ -48,6 +54,7 @@ class _SplashViewState extends State<SplashView>  with SingleTickerProviderState
   @override
   void dispose() {
     _controller.dispose();
+    _controller2.dispose();
     super.dispose();
 
   }
@@ -58,10 +65,10 @@ class _SplashViewState extends State<SplashView>  with SingleTickerProviderState
       body: Stack(
         children: [
           Center(
-            child: SvgPicture.asset(
+            child: Image.asset(
               Assets.splash
-             , width: 70,
-               height: 70,
+             , width: 150,
+              height: 150,
             ),
           ),
 
@@ -69,15 +76,15 @@ class _SplashViewState extends State<SplashView>  with SingleTickerProviderState
             child: SlideTransition(
               position: _whatsTextAnimation,
               child: Align(
-                alignment: Alignment.centerLeft,
+                alignment: Alignment.center,
                 child: Padding(
-                  padding: const EdgeInsets.only(top: 200.0,left: 140), // Adjust position below the image
+                  padding: const EdgeInsets.only(top: 200.0), // Adjust position below the image
                   child: Text(
-                    "Whats",
+                    "WhatsUp",
                     style: TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.bold,
-                      color: Colors.green,
+                      color: Colors.black,
                     ),
                   ),
                 ),
@@ -91,13 +98,13 @@ class _SplashViewState extends State<SplashView>  with SingleTickerProviderState
               child: Align(
                 alignment: Alignment.center,
                 child: Padding(
-                  padding: const EdgeInsets.only(top: 200.0, left: 150,right: 45), // Adjust to align with "Whats"
+                  padding: const EdgeInsets.only(top: 300.0, ), // Adjust to align with "Whats"
                   child: Text(
-                    "App",
+                    "The best chat app for this country",
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 15,
                       fontWeight: FontWeight.bold,
-                      color: Colors.green,
+                      color: Colors.greenAccent,
                     ),
                   ),
                 ),
