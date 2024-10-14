@@ -17,14 +17,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(debugShowCheckedModeBanner: false,
       title: 'WhatsApp',
       home: SplashView(),
-<<<<<<< HEAD
+
       theme: ThemeData(
         textTheme: GoogleFonts.interTextTheme(
           Theme.of(context).textTheme,
         ),
       ),
-=======
->>>>>>> d71c49a5f65065cef86b4ba80248179a902b2a8c
+
 
     );
 
