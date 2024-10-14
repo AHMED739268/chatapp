@@ -74,44 +74,8 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
       body: Stack(
         children: [
           const CenterImageWidget(), // Assuming this widget displays the center image
-          Positioned.fill(
-            child: SlideTransition(
-              position: _whatsTextAnimation,
-              child: const Align(
-                alignment: Alignment.centerLeft,
-                child: Padding(
-                  padding: EdgeInsets.only(top: 100.0, left: 170),
-                  child: Text(
-                    "Whats",
-                    style: TextStyle(
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.green,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ),
-          Positioned.fill(
-            child: SlideTransition(
-              position: _appTextAnimation,
-              child: const Align(
-                alignment: Alignment.center,
-                child: Padding(
-                  padding: EdgeInsets.only(top: 100.0, left: 150, right: 70),
-                  child: Text(
-                    "App",
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.green,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ),
+          WhatsUpText(animation: _whatsTextAnimation),
+          AppDescriptionText(animation:_appTextAnimation ,)
         ],
       ),
     );
